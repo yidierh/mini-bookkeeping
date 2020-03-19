@@ -4,7 +4,7 @@
  * @email yidierh@gmail.com
  * @date 2020-02-24
  */
-import * as config from '@/config.json'
+import * as config from '../../../../config.json'
 import Taro, {Component} from '@tarojs/taro'
 import {View, Text, Image} from '@tarojs/components'
 import { AtButton } from 'taro-ui'
@@ -16,7 +16,7 @@ import './index.scss'
 export default class Start extends Component {
 
   config = {
-    navigationBarTitleText: 'KoCost'
+    navigationBarTitleText: '记丨账'
   }
 
   constructor(props) {

@@ -1,7 +1,7 @@
 import '@/public/font/iconfont.css'
 
 import Taro, { Component } from '@tarojs/taro'
-import CLOUD_ENV from '../../cloudenv.config.json' // 小程序云环境地址
+import * as config from '../../config.json'
 import Home from './pages/home/index'
 import './app.scss'
 
@@ -56,9 +56,9 @@ class App extends Component {
      */
     if (process.env.TARO_ENV === 'weapp') {
       if (process.env.NODE_ENV !== 'production') {
-        Taro.cloud.init({ env: CLOUD_ENV.dev })
+        Taro.cloud.init({ env: config.cloud_dev })
       } else {
-        Taro.cloud.init({ env: CLOUD_ENV.prod })
+        Taro.cloud.init({ env: config.cloud_prod })
       }
     }
   }

@@ -4,7 +4,7 @@
  * @email yidierh@gmail.com
  * @date 2020-02-26
  */
-import * as config from '@/config.json'
+import * as config from '../../../../config.json'
 import {get as getGlobalData} from 'utils/global'
 import {AtInput, AtButton, AtMessage} from 'taro-ui'
 import Taro, {Component} from '@tarojs/taro'
