@@ -16,7 +16,7 @@ import './index.scss'
 export default class Start extends Component {
 
   config = {
-    navigationBarTitleText: '记丨账'
+    navigationBarTitleText: 'EasyCost'
   }
 
   constructor(props) {
