@@ -34,4 +34,4 @@ taro-ui: https://taro-ui.jd.com/
 ```
 
 ### 邮箱
-yidierh@outook.com
+yidierh@gmail.com
