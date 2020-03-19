@@ -1,12 +1,9 @@
 import '@/public/font/iconfont.css'
 
 import Taro, { Component } from '@tarojs/taro'
+import CLOUD_ENV from '../../cloudenv.config.json' // 小程序云环境地址
 import Home from './pages/home/index'
 import './app.scss'
-
-import CLOUD_ENV from '../../cloudenv.config.json'
-
-console.log(CLOUD_ENV)
 
 // 如果需要在 h5 环境中开启 React Devtools
 // 取消以下注释：
