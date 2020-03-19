@@ -87,4 +87,17 @@
       }
     }
   }
+  &__wrap {
+    position: fixed;
+    bottom: 25px;
+    left: 0;
+    display: inline-flex;
+    justify-content: center;
+    width: 100%;
+    z-index: 2;
+    &-contact {
+      width: 200px;
+      height: 50px;
+    }
+  }
 }

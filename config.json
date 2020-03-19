@@ -1,5 +1,5 @@
 {
-  "appName": "your app name",
-  "cloud_dev": "dev environment",
-  "cloud_prod": "prod environment"
+  "appName": "EasyCost",
+  "cloud_dev": "bookkeeping-dev-8r9v8",
+  "cloud_prod": "bookkeeping-prod-et581"
 }
