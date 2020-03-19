@@ -31,7 +31,7 @@ taro-ui: https://taro-ui.jd.com/
 │           └── package.json
 ├── project.config.json                     小程序项目配置
 │
-└── cloudenv.config.json                    小程序云环境配置文件
+└── config.json                             个人小程序配置文件
 ```
 
 ### 邮箱
