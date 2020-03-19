@@ -34,6 +34,16 @@ taro-ui: https://taro-ui.jd.com/
 └── config.json                             个人小程序配置文件
 ```
 
+### 编译前准备
+> 需要在根目录下新建一个 config.json
+```text
+{
+  "appName": "your app name",
+  "cloud_dev": "dev env",
+  "cloud_prod": "prod env"
+}
+```
+
 ### 邮箱
 
 yidierh@gmail.com
