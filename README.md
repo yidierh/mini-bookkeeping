@@ -1,6 +1,7 @@
 ## 记账小程序
 
 ### 技术栈
+
 ```text
 taro: https://taro.aotu.io/
 taro-ui: https://taro-ui.jd.com/
@@ -34,4 +35,11 @@ taro-ui: https://taro-ui.jd.com/
 ```
 
 ### 邮箱
+
 yidierh@gmail.com
+
+
+
+### 线上小程序
+
+![记账I]([https://github.com/eddieyd/mini-bookkeeping/blob/develop/code.jpg])
