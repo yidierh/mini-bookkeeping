@@ -42,4 +42,4 @@ yidierh@gmail.com
 
 ### 线上小程序
 
-![记账I]([https://github.com/eddieyd/mini-bookkeeping/blob/develop/code.jpg])
+![记账I]([https://raw.githubusercontent.com/eddieyd/mini-bookkeeping/master/code.jpg])
