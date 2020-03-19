@@ -1,6 +1,7 @@
 import '@/public/font/iconfont.css'
 
 import Taro, { Component } from '@tarojs/taro'
+import CLOUD_ENV from '../../cloudenv.config.json' // 小程序云环境地址
 import Home from './pages/home/index'
 import './app.scss'
 
@@ -50,13 +51,15 @@ class App extends Component {
   }
 
   componentDidMount () {
+    /**
+     * 这里改你的云环境地址
+     */
     if (process.env.TARO_ENV === 'weapp') {
-      Taro.cloud.init({ env: 'bookkeeping-dev-8r9v8' })
-      // if (process.env.NODE_ENV !== 'production') {
-      //   Taro.cloud.init({ env: 'bookkeeping-dev-8r9v8' })
-      // } else {
-      //   Taro.cloud.init({ env: 'bookkeeping-prod-et581' })
-      // }
+      if (process.env.NODE_ENV !== 'production') {
+        Taro.cloud.init({ env: CLOUD_ENV.dev })
+      } else {
+        Taro.cloud.init({ env: CLOUD_ENV.prod })
+      }
     }
   }
 

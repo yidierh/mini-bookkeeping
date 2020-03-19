@@ -5,4 +5,4 @@ deploy_versions/
 node_modules/
 .DS_Store
 .idea
-cloud
+cloudenv.config.json
