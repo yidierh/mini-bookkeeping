@@ -4,6 +4,10 @@ import Taro, { Component } from '@tarojs/taro'
 import Home from './pages/home/index'
 import './app.scss'
 
+import CLOUD_ENV from '../../cloudenv.config.json'
+
+console.log(CLOUD_ENV)
+
 // 如果需要在 h5 环境中开启 React Devtools
 // 取消以下注释：
 // if (process.env.NODE_ENV !== 'production' && process.env.TARO_ENV === 'h5')  {
@@ -51,12 +55,11 @@ class App extends Component {
 
   componentDidMount () {
     if (process.env.TARO_ENV === 'weapp') {
-      Taro.cloud.init({ env: 'bookkeeping-dev-8r9v8' })
-      // if (process.env.NODE_ENV !== 'production') {
-      //   Taro.cloud.init({ env: 'bookkeeping-dev-8r9v8' })
-      // } else {
-      //   Taro.cloud.init({ env: 'bookkeeping-prod-et581' })
-      // }
+      if (process.env.NODE_ENV !== 'production') {
+        Taro.cloud.init({ env: CLOUD_ENV.dev })
+      } else {
+        Taro.cloud.init({ env: CLOUD_ENV.prod })
+      }
     }
   }
 
