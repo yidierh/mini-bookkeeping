@@ -1,0 +1,55 @@
+.home-statistics-container {
+  padding: 14px 40px;
+  box-sizing: border-box;
+  &__box {
+    margin: 0 auto;
+    width: 680px;
+    //height: 840px;
+    background: #3C4EEA;
+    box-shadow: $blueShadow;
+    border-radius: 60px;
+    box-sizing: border-box;
+    &-top {
+      padding: 60px 60px 0 60px;
+      display: flex;
+      flex-direction: column;
+    }
+    &-center {
+      padding: 0 60px 0 60px;
+      margin-top: 30px;
+      display: inline-flex;
+      &__item {
+        margin-right: 80px;
+        display: flex;
+        flex-direction: column;
+      }
+    }
+    &-chart {
+      padding: 20px 20px 20px 60px;
+    }
+    &__text {
+      &__title {
+        font-weight: 500;
+        font-size: 24px;
+        line-height: 36px;
+        color: #D7D7D7;
+      }
+      &__money {
+        font-size: 60px;
+        line-height: 90px;
+        color: $lightBackGround;
+        &-detail {
+          font-weight: 600;
+          font-size: 36px;
+          line-height: 54px;
+          color: $lightBackGround;
+        }
+      }
+      &__sub {
+        font-size: 24px;
+        line-height: 36px;
+        color: #4AFCF8;
+      }
+    }
+  }
+}

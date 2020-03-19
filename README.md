@@ -1,2 +1,2 @@
-# mini-bookkeeping
-一款记账小程序
+# mini-bookkepping
+记账小程序

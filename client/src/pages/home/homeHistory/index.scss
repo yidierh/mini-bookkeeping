@@ -1,0 +1,84 @@
+.home-history-container {
+  &-add {
+    @include fix-btn(20px, 60px);
+    @include active();
+  }
+  &-scroll {
+    padding: 42px 56px;
+    margin-top: 86px;
+    border-radius: 60px 60px 0 0;
+    //min-height: 754px;
+    box-sizing: border-box;
+    background: $lightBackGround;
+
+    &__title {
+      font-weight: 600;
+      font-size: 36px;
+      line-height: 54px;
+      color: #888181;
+    }
+
+    &__item {
+      display: inline-flex;
+      position: relative;
+      padding: 52px 29px;
+      height: 168px;
+      width: 100%;
+      align-items: center;
+      box-sizing: border-box;
+      @include active();
+      &-left {
+        margin-right: 36px;
+        background-color: #F7F7FD;
+        border-radius: 10px;
+        @include vertical-center(64px, 64px);
+      }
+
+      &-right {
+        position: relative;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+
+        &-title {
+          font-weight: 500;
+          font-size: 28px;
+          line-height: 42px;
+          color: #5C5157;
+        }
+
+        &-money {
+          font-size: 24px;
+          line-height: 36px;
+          color: #827A7E;
+          &.come {
+            color: $weChatColor;
+          }
+          &.out {
+            color: $red;
+          }
+        }
+
+        &-time {
+          position: absolute;
+          top: 0;
+          right: 42px;
+          font-size: 24px;
+          line-height: 36px;
+          color: #919191;
+        }
+      }
+      &__last {
+        &::before {
+          position: absolute;
+          content: '';
+          left: 0;
+          bottom: 0;
+          height: 2px;
+          width: 100%;
+          background-color: #E7EAED;
+        }
+      }
+    }
+  }
+}

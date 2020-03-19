@@ -1,0 +1,23 @@
+.home-top-container {
+  padding: 28px 60px;
+  display: inline-flex;
+  width: 100%;
+  align-items: center;
+  box-sizing: border-box;
+  &-right {
+    display: flex;
+    margin-left: 30px;
+    flex-direction: column;
+    &-title {
+      font-weight: 600;
+      font-size: 32px;
+      line-height: 54px;
+    }
+    &-sub {
+      margin-top: 4px;
+      font-size: 28px;
+      line-height: 42px;
+      color: #566070;
+    }
+  }
+}

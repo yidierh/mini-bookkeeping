@@ -1,0 +1,48 @@
+.start-container {
+  &-hello {
+    position: fixed;
+    display: inline-flex;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    justify-content: center;
+    align-items: center;
+    background: $lightBackGround;
+    z-index: 9999;
+    &-text {
+      font-weight: bold;
+      font-size: 60px;
+      color: $themeColor;
+    }
+  }
+  &-main {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    &-img {
+      width: 624px;
+      height: 804px;
+    }
+    &-title {
+      font-weight: 600;
+      font-size: 48px;
+      line-height: 72px;
+      color: $textColorDefault;
+    }
+    &-text {
+      margin-top: 16px;
+      width: 100%;
+      font-size: 28px;
+      line-height: 42px;
+      text-align: center;
+      color: $textColorSub;
+    }
+    &-btn {
+      margin-top: 35px;
+      width: 550px;
+    }
+  }
+}

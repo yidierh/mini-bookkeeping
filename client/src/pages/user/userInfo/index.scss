@@ -1,0 +1,90 @@
+/*
+  层级关系index:
+  user-info-container: 1
+  &__top: 3
+*/
+
+.user-info-container {
+  position: relative;
+  z-index: 1;
+  &__top {
+    position: absolute;
+    display: flex;
+    left: 0;
+    top: 46px;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    z-index: 3;
+    &-avatar {
+      margin-bottom: 14px;
+    }
+    &-name {
+      font-weight: 500;
+      font-size: 36px;
+      line-height: 54px;
+      color: $textColorDefault;
+    }
+  }
+  &-title {
+    font-weight: 500;
+    font-size: 28px;
+    line-height: 42px;
+  }
+  &__contact {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    left: 0;
+
+    background: $lightBackGround;
+    box-sizing: border-box;
+    color: $textColorDefault;
+    z-index: 2;
+
+    &-first {
+      border-radius: 60px 60px 0 0;
+      padding: 142px 50px 0 50px;
+      //height: 490px;
+      height: calc(100vh - 100px);
+      top: 100px;
+    }
+    &-second {
+      padding: 18px 50px 0 50px;
+      height: 216px;
+      top: 614px;
+    }
+    &-third {
+      padding: 18px 50px 0 50px;
+      height: 448px;
+      top: 855px;
+    }
+    &-item {
+      display: inline-flex;
+      margin-left: 16px;
+      margin-top: 14px;
+      height: 84px;
+      &__border {
+        padding-bottom: 14px;
+        border-bottom: 2px solid #E7EAED;
+      }
+      &__left {}
+      &__right {
+        display: flex;
+        margin-left: 36px;
+        flex-direction: column;
+        &-title {
+          font-size: 28px;
+          line-height: 42px;
+          color: #B0B0B0;
+        }
+        &-text {
+          font-size: 28px;
+          line-height: 42px;
+          color: #55616B;
+        }
+      }
+    }
+  }
+}

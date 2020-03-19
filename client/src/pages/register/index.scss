@@ -1,0 +1,38 @@
+.register-container {
+  display: flex;
+  padding: 20px 110px;
+  flex-direction: column;
+  &-title {
+    font-weight: bold;
+    font-size: 60px;
+    line-height: 90px;
+    color: $themeColor;
+  }
+  &-text {
+    margin-top: 60px;
+    font-size: 48px;
+    line-height: 72px;
+    color: $textColorDefault;
+  }
+  &-sub {
+    margin-top: 20px;
+    font-size: 28px;
+    line-height: 42px;
+    color: $textColorSub;
+  }
+  &-form {
+    margin-top: 100px;
+    border: none;
+    &-input {
+      margin-top: 50px;
+    }
+    &-placeholder {
+      font-size: 32px;
+      line-height: 48px;
+      color: #B1B6BE;
+    }
+    &-btn {
+      margin-top: 184px;
+    }
+  }
+}

@@ -1,0 +1,33 @@
+.user-loading-container {
+  padding: 46px 50px;
+  @include flashAni();
+  &-avatar__wrap {
+    display: inline-flex;
+    margin-bottom: 60px;
+    width: 100%;
+    justify-content: center;
+    &-content {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      background-color: $iconDefaultColor;
+    }
+  }
+  .first {
+    margin-top: 60px;
+  }
+  &-input {
+    &__top, &__bottom {
+      margin-bottom: 28px;
+      height: 40px;
+      border-radius: 10px;
+      background-color: $iconDefaultColor;
+    }
+    &__top {
+      width: 400px;
+    }
+    &__bottom {
+      width: 600px;
+    }
+  }
+}

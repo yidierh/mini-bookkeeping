@@ -1,0 +1,78 @@
+@mixin active() {
+  &:active {
+    opacity: .8;
+  }
+}
+
+@mixin flashAni() {
+  animation: opacity-ani 2s infinite;
+  background: $lightBackGround;
+  @keyframes opacity-ani {
+    0% {
+      opacity: 1;
+    }
+    10% {
+      opacity: .9;
+    }
+    20% {
+      opacity: .8;
+    }
+    30% {
+      opacity: .7;
+    }
+    40% {
+      opacity: .6;
+    }
+    50% {
+      opacity: .5;
+    }
+    60% {
+      opacity: .6;
+    }
+    70% {
+      opacity: .7;
+    }
+    80% {
+      opacity: .8;
+    }
+    90% {
+      opacity: .9;
+    }
+    100% {
+      opacity: .95;
+    }
+  }
+}
+
+/* 垂直居中 */
+@mixin vertical-center($width, $height) {
+  display: inline-flex;
+  width: $width;
+  height: $height;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 悬浮按钮 */
+@mixin fix-btn($bottom, $right) {
+  position: fixed;
+  bottom: $bottom;
+  right: $right;
+  border-radius: 50%;
+  background-color: $orange;
+  box-shadow: $orangeShadow;
+  z-index: 1;
+  @include vertical-center(112px, 112px);
+}
+
+@mixin fix-btn-danger($bottom, $left) {
+  position: fixed;
+  bottom: $bottom;
+  left: $left;
+  border-radius: 50%;
+  background-color: $red;
+  box-shadow: $orangeShadow;
+  z-index: 1;
+  @include vertical-center(112px, 112px);
+}
+
