@@ -40,7 +40,8 @@ taro-ui: https://taro-ui.jd.com/
 {
   "appName": "your app name",
   "cloud_dev": "dev env",
-  "cloud_prod": "prod env"
+  "cloud_prod": "prod env",
+  "tmplIds": [""] // 订阅消息，不需要可以再 start 页面去掉
 }
 ```
 

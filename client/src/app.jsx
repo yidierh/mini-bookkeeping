@@ -1,9 +1,9 @@
 import '@/public/font/iconfont.css'
+import 'taro-ui/dist/style/index.scss'
 
 import Taro, { Component } from '@tarojs/taro'
 import * as config from '../../config.json'
 import Home from './pages/home/index'
-import './app.scss'
 
 // 如果需要在 h5 环境中开启 React Devtools
 // 取消以下注释：
@@ -16,12 +16,26 @@ class App extends Component {
   config = {
     pages: [
       'pages/start/index',
-      'pages/register/index',
-      'pages/record/index',
-      'pages/details/index',
       'pages/home/index',
-      'pages/user/index',
-      'pages/login/index'
+      'pages/user/index'
+    ],
+    subPackages: [
+      {
+        root: 'pages/login/',
+        pages: ['index']
+      },
+      {
+        root: 'pages/register/',
+        pages: ['index']
+      },
+      {
+        root: 'pages/record/',
+        pages: ['index']
+      },
+      {
+        root: 'pages/details/',
+        pages: ['index']
+      }
     ],
     window: {
       backgroundTextStyle: 'light',

@@ -61,6 +61,10 @@ export default class Start extends Component {
   }
 
   start = async () => {
+    // 订阅消息授权
+
+    await Taro.requestSubscribeMessage({tmplIds: [...config.tmplIds]})
+
     try {
       // 判断是否登陆过
       const _isNew = await isNewUser()
