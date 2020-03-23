@@ -9,7 +9,7 @@ import Taro, {Component} from '@tarojs/taro'
 import {View, Text, Image} from '@tarojs/components'
 import { AtButton } from 'taro-ui'
 import { isNewUser } from 'api/user'
-import { set as setGlobalData } from 'utils/global'
+import { set as setGlobalData, get as getGloablData } from 'utils/global'
 
 import './index.scss'
 
@@ -63,7 +63,23 @@ export default class Start extends Component {
   start = async () => {
     // 订阅消息授权
 
-    await Taro.requestSubscribeMessage({tmplIds: [...config.tmplIds]})
+    const res = await Taro.requestSubscribeMessage({tmplIds: [...config.tmplIds]})
+
+    const cloudData = await getGloablData('cloudData')
+
+    if (res.errMsg === 'requestSubscribeMessage:ok') {
+      Taro.cloud
+        .callFunction({
+          name: "message",
+          data: {
+            openId: cloudData.openid,
+            templateId: [...config.tmplIds][0]
+          }
+        })
+        .then(res => {
+          console.log(res)
+        })
+    }
 
     try {
       // 判断是否登陆过

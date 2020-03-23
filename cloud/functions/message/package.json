@@ -1,12 +1,11 @@
 {
-  "name": "sumMonth",
+  "name": "message",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "订阅消息相关逻辑",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "yidier",
   "license": "ISC",
   "dependencies": {
     "wx-server-sdk": "latest"
