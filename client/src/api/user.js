@@ -59,3 +59,20 @@ export const getUser = async () => {
     throw (e)
   }
 }
+
+/**
+ * 更新用户订阅消息授权状态
+ * @param status
+ */
+export const updateUserMessageAccept = async (status) => {
+  try {
+    const {openid} = await getGlobalData('cloudData')
+    await USER.where({_openid: openid}).update({
+      data: {
+        accept_message: status
+      }
+    })
+  } catch (e) {
+    throw e
+  }
+}
