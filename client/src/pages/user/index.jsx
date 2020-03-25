@@ -4,6 +4,7 @@
  * @email yidierh@gmail.com
  * @date 2020-02-25
  */
+import { set as setGlobalData } from 'utils/global'
 import {getUser} from 'api/user'
 import Taro, {Component} from '@tarojs/taro'
 
@@ -56,8 +57,9 @@ export default class User extends Component {
     Taro.openSetting({})
   }
 
-  logOut = () => {
+  logOut = async () => {
     try {
+      await setGlobalData('isFirst', false)
       Taro.clearStorageSync()
       Taro.redirectTo({url: '/pages/start/index'})
     } catch(e) {
