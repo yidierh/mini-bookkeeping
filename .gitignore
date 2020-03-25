@@ -5,4 +5,4 @@ deploy_versions/
 node_modules/
 .DS_Store
 .idea
-config.json
+mini.config.json

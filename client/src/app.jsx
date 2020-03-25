@@ -2,7 +2,7 @@ import '@/public/font/iconfont.css'
 import 'taro-ui/dist/style/index.scss'
 
 import Taro, { Component } from '@tarojs/taro'
-import * as config from '../../config.json'
+import * as config from '../../mini.config.json'
 import Home from './pages/home/index'
 
 // 如果需要在 h5 环境中开启 React Devtools
