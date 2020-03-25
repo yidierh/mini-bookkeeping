@@ -35,6 +35,10 @@ class App extends Component {
       {
         root: 'pages/details/',
         pages: ['index']
+      },
+      {
+        root: 'pages/about/',
+        pages: ['index']
       }
     ],
     window: {

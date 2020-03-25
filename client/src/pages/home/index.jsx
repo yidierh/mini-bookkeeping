@@ -31,7 +31,7 @@ export default class Home extends Component {
 
   }
 
-  componentWillMount () { }
+  componentWillMount () {}
 
   componentDidMount () { }
 

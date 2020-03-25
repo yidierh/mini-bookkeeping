@@ -161,7 +161,17 @@ const sendMessage = async (isAccept, {_openid, income, pay, sum, date}) => {
             return result
         }
     } catch (e) {
-        throw `${_openid}-----------------------------: ${e}`
+        if (e.errCode === 43101) { // 用户拒收
+            await USER.where({_openid: _openid}) // 更新该用户授权状态
+                .update({
+                    data: {
+                        accept_message: false
+                    }
+                })
+            throw `${_openid} 用户拒收了`
+        } else {
+            throw e
+        }
     }
 }
 

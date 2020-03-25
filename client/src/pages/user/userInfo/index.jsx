@@ -41,7 +41,7 @@ class UserInfo extends Component {
   }
 
   render() {
-    const {userInfo} = this.props
+    const {userInfo, openSetting, logOut, goAbout} = this.props
     return (
       <View className='user-info-container'>
         <View className='user-info-container__top'>
@@ -75,43 +75,30 @@ class UserInfo extends Component {
           </View>
         </View>
 
-        {/*<View className='user-info-container__contact user-info-container__contact-second'>*/}
-        {/*  <Text className='user-info-container-title'> Koneksi </Text>*/}
-        {/*  <View className='user-info-container__contact-item'>*/}
-        {/*    <AtIcon prefixClass='icon' value='family' size='20' color='#BABABA' />*/}
-        {/*    <View className='user-info-container__contact-item__right'>*/}
-        {/*      <Text className='user-info-container__contact-item__right-title'> Invite Wali </Text>*/}
-        {/*      <Text className='user-info-container__contact-item__right-text'> Mengundang orang tua atau kerabat agar*/}
-        {/*        bisa*/}
-        {/*        Memantaumu </Text>*/}
-        {/*    </View>*/}
-        {/*  </View>*/}
-        {/*</View>*/}
-
-        {/*<View className='user-info-container__contact user-info-container__contact-third'>*/}
-        {/*  <Text className='user-info-container-title'> Lainnya </Text>*/}
-        {/*  <View className='user-info-container__contact-item user-info-container__contact-item__border'>*/}
-        {/*    <AtIcon prefixClass='icon' value='setting' size='20' color='#BABABA' />*/}
-        {/*    <View className='user-info-container__contact-item__right'>*/}
-        {/*      <Text className='user-info-container__contact-item__right-title'> Pengaturan </Text>*/}
-        {/*      <Text className='user-info-container__contact-item__right-text'> Untuk merubah detail </Text>*/}
-        {/*    </View>*/}
-        {/*  </View>*/}
-        {/*  <View className='user-info-container__contact-item user-info-container__contact-item__border'>*/}
-        {/*    <AtIcon prefixClass='icon' value='info' size='20' color='#BABABA' />*/}
-        {/*    <View className='user-info-container__contact-item__right'>*/}
-        {/*      <Text className='user-info-container__contact-item__right-title'> Tentang kami </Text>*/}
-        {/*      <Text className='user-info-container__contact-item__right-text'> Info tentang KoCost </Text>*/}
-        {/*    </View>*/}
-        {/*  </View>*/}
-        {/*  <View className='user-info-container__contact-item'>*/}
-        {/*    <AtIcon prefixClass='icon' value='logout' size='20' color='#BABABA' />*/}
-        {/*    <View className='user-info-container__contact-item__right'>*/}
-        {/*      <Text className='user-info-container__contact-item__right-title'> Log Out </Text>*/}
-        {/*      <Text className='user-info-container__contact-item__right-text'> Keluar akun </Text>*/}
-        {/*    </View>*/}
-        {/*  </View>*/}
-        {/*</View>*/}
+        <View className='user-info-container__contact user-info-container__contact-second'>
+          <Text className='user-info-container-title'> 其他 </Text>
+          <View onClick={() => goAbout()} className='user-info-container__contact-item user-info-container__contact-item__active user-info-container__contact-item__border'>
+            <AtIcon prefixClass='icon' value='info' size='20' color='#BABABA' />
+            <View className='user-info-container__contact-item__right'>
+              <Text className='user-info-container__contact-item__right-title'> 信息 </Text>
+              <Text className='user-info-container__contact-item__right-text'> 关于 KoCost 的信息 </Text>
+            </View>
+          </View>
+          <View onClick={() => openSetting()} className='user-info-container__contact-item user-info-container__contact-item__active user-info-container__contact-item__border'>
+            <AtIcon prefixClass='icon' value='setting' size='20' color='#BABABA' />
+            <View className='user-info-container__contact-item__right'>
+              <Text className='user-info-container__contact-item__right-title'> 设置 </Text>
+              <Text className='user-info-container__contact-item__right-text'> 更改授权 </Text>
+            </View>
+          </View>
+          <View onClick={() => logOut()} className='user-info-container__contact-item user-info-container__contact-item__active'>
+            <AtIcon prefixClass='icon' value='logout' size='20' color='#BABABA' />
+            <View className='user-info-container__contact-item__right'>
+              <Text className='user-info-container__contact-item__right-title'> 退出 </Text>
+              <Text className='user-info-container__contact-item__right-text'> 登出账号 </Text>
+            </View>
+          </View>
+        </View>
         <View className={'user-info-container__wrap'}>
           <AtButton
             type={'primary'}
