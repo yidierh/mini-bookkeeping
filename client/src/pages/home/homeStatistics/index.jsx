@@ -25,7 +25,8 @@ export default class HomeStatistics extends Component {
     sumData: [],
     incomeData: [],
     payData: [],
-    lastSum: 0
+    lastSum: 0,
+    current: 0
   }
 
   constructor(props) {
@@ -159,8 +160,17 @@ export default class HomeStatistics extends Component {
     }
   }
 
+  selectType = (value) => {
+    const { current } = this.state
+    if (value === current) return
+    this.setState({
+      current: value
+    })
+  }
+
   render() {
     const {inSum, outSum, lastSum, xData, incomeData, payData, sumData} = this.props
+    const { current } = this.state
 
     const monthSum = outSum * -1 + inSum
     const compareSum = lastSum - monthSum
@@ -196,6 +206,15 @@ export default class HomeStatistics extends Component {
                 {formatNumber(inSum)}
               </Text>
             </View>
+          </View>
+          <View className='home-statistics-container__box-type'>
+            <Text className='home-statistics-container__box-type__left' onClick={() => this.selectType(0)}>
+              最近一月
+            </Text>
+            <Text className='home-statistics-container__box-type__right' onClick={() => this.selectType(1)}>
+              最近一年
+            </Text>
+            <View className={`home-statistics-container__box-type__line ${ current ? 'home-statistics-container__box-type__line-active_right' : 'home-statistics-container__box-type__line-active_left'}`}/>
           </View>
           <View className='home-statistics-container__box-chart'>
             { xData.length ? <Chart option={this.setOptions({xData, incomeData, payData, sumData})}/> : '' }
