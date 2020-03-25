@@ -59,7 +59,7 @@ export default class User extends Component {
 
   logOut = async () => {
     try {
-      await setGlobalData('isFirst', false)
+      await setGlobalData('isFirst', true)
       Taro.clearStorageSync()
       Taro.redirectTo({url: '/pages/start/index'})
     } catch(e) {
