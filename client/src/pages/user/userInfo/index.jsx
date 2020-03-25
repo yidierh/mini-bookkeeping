@@ -88,7 +88,7 @@ class UserInfo extends Component {
             <AtIcon prefixClass='icon' value='setting' size='20' color='#BABABA' />
             <View className='user-info-container__contact-item__right'>
               <Text className='user-info-container__contact-item__right-title'> 设置 </Text>
-              <Text className='user-info-container__contact-item__right-text'> 更改授权 </Text>
+              <Text className='user-info-container__contact-item__right-text'> 管理授权 </Text>
             </View>
           </View>
           <View onClick={() => logOut()} className='user-info-container__contact-item user-info-container__contact-item__active'>
