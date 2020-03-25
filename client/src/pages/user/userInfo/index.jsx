@@ -81,7 +81,7 @@ class UserInfo extends Component {
             <AtIcon prefixClass='icon' value='info' size='20' color='#BABABA' />
             <View className='user-info-container__contact-item__right'>
               <Text className='user-info-container__contact-item__right-title'> 信息 </Text>
-              <Text className='user-info-container__contact-item__right-text'> 关于 KoCost 的信息 </Text>
+              <Text className='user-info-container__contact-item__right-text'> 关于我们 </Text>
             </View>
           </View>
           <View onClick={() => openSetting()} className='user-info-container__contact-item user-info-container__contact-item__active user-info-container__contact-item__border'>
