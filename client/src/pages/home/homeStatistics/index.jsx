@@ -176,7 +176,7 @@ export default class HomeStatistics extends Component {
               {formatNumber(monthSum)}
             </Text>
             <Text className='home-statistics-container__box__text__sub'>
-              与上月相比 { `${compareSum > 0 ? '+' : '-'} ${ formatNumber(compareSum) }` }
+              与上月相比 { `${compareSum < 0 ? '-' : '+'} ${ formatNumber(compareSum) }` }
             </Text>
           </View>
           <View className='home-statistics-container__box-center'>

@@ -1,7 +1,7 @@
 import { get as getGlobalData, set as setGlobalData } from 'utils/global'
 import { getMonthSum, getMonth, getLastSum } from 'api/record'
 import Taro, { Component } from '@tarojs/taro'
-import { View, Text } from '@tarojs/components'
+import {View, Text, Button} from '@tarojs/components'
 
 import './index.scss'
 
@@ -31,9 +31,7 @@ export default class Home extends Component {
 
   }
 
-
-  componentWillMount () { }
-
+  componentWillMount () {}
 
   componentDidMount () { }
 

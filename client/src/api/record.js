@@ -101,13 +101,15 @@ export const deleteRecord = async ({_id}) => {
  * @returns {Promise<void>}
  */
 export const getMonthSum = async (type) => {
+  const {openid} = await getGlobalData('cloudData')
   const {first_day, last_day} = monthFirstAndLast(new Date().getMonth() + 1)
 
   const res =
     await RECORD
       .where({
         date: _.and(_.gte(first_day), _.lte(last_day)),
-        type: _.eq(type)
+        type: _.eq(type),
+        _openid: openid
       })
       .get()
 
@@ -130,15 +132,20 @@ const sumMonthMoney = (arr) => {
  * 获取当年每月的总消费
  */
 export const getMonth = async () => {
+  const {openid} = await getGlobalData('cloudData')
   const {first_day} = monthFirstAndLast(1)
+  const queryDay = $.dateFromString({
+      dateString: new Date(first_day).toJSON()
+    })
   try {
     const {list} = await MONTH_RECORD
       .aggregate()
       .addFields({
-        matched: $.gte(['$date', first_day.toDateString()])
+        matched: $.gte(['$date', queryDay])
       })
       .match({
-        matched: true
+        matched: true,
+        _openid: openid
       })
       .sort({
         date: 1
@@ -164,13 +171,13 @@ export const getMonth = async () => {
  * @return {Promise<void>}
  */
 export const getLastSum = async () => {
-
+  const {openid} = await getGlobalData('cloudData')
   const {first_day, last_day} = monthFirstAndLast(new Date().getMonth())
 
   try {
     const {data} = await MONTH_RECORD
       .where({
-        date: _.and([_.gte(first_day), _.lte(last_day)])
+        date: _.and([_.gte(first_day), _.lte(last_day), { _openid: openid }])
       })
       .get()
     return data.length ? data[0].sum : 0

@@ -31,16 +31,17 @@ taro-ui: https://taro-ui.jd.com/
 │           └── package.json
 ├── project.config.json                     小程序项目配置
 │
-└── config.json                             个人小程序配置文件
+└── mini.config.json                             个人小程序配置文件
 ```
 
 ### 编译前准备
-> 需要在根目录下新建一个 config.json
+> 需要在根目录下新建一个 mini.config.json
 ```text
 {
   "appName": "your app name",
   "cloud_dev": "dev env",
-  "cloud_prod": "prod env"
+  "cloud_prod": "prod env",
+  "tmplIds": [""] // 订阅消息ID，不需要可以在 start 页面去掉
 }
 ```
 

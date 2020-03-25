@@ -1,0 +1,27 @@
+.about-container {
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  &__text {
+    padding: 60px;
+    display: flex;
+    flex-direction: column;
+    background: #3C4EEA;
+    box-shadow: $blueShadow;
+    border-radius: 30px;
+    box-sizing: border-box;
+    color: $lightBackGround;
+    line-height: 62px;
+  }
+  &__wrap {
+    margin-top: 50px;
+    display: inline-flex;
+    justify-content: center;
+    width: 100%;
+    z-index: 2;
+    &-copy {
+      width: 200px;
+      height: 50px;
+    }
+  }
+}

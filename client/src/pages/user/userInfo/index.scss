@@ -52,19 +52,19 @@
     }
     &-second {
       padding: 18px 50px 0 50px;
-      height: 216px;
-      top: 614px;
-    }
-    &-third {
-      padding: 18px 50px 0 50px;
       height: 448px;
-      top: 855px;
+      top: 614px;
     }
     &-item {
       display: inline-flex;
       margin-left: 16px;
-      margin-top: 14px;
+      margin-top: 20px;
       height: 84px;
+      &__active {
+        &:active {
+          opacity: .5;
+        }
+      }
       &__border {
         padding-bottom: 14px;
         border-bottom: 2px solid #E7EAED;
