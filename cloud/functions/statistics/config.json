@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "openapi": [
+      "subscribeMessage.send",
+      "subscribeMessage.getTemplateList"
+    ]
+  },
+  "triggers": [
+    {
+      "name": "timeTrigger",
+      "type": "timer",
+      "config": "0 30 17 * * * *"
+    }
+  ]
+}
