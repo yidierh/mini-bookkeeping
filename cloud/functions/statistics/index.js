@@ -100,9 +100,8 @@ const sumAll = (status, openid, accept) => {
         try {
 
             // pay - income
-
+            const _Date = new Date()
             let data = {
-                date: new Date(),
                 _openid: openid,
                 income: res[1],
                 pay: res[0],
@@ -111,14 +110,18 @@ const sumAll = (status, openid, accept) => {
 
 
             if (status === 'day') {
+
+                data['date'] = new Date(_Date.getFullYear(), _Date.getMonth(), _Date.getDate() -1) // 设置日期为上月的
+
                 await DAY_RECORD.add({
                     data: {...data}
                 })
+
                 if (accept) {
+                    data['date'] = new Date(_Date.getFullYear(), _Date.getMonth(), _Date.getDate(), 9,0,0) // 设置日期为上月的
                     await sendMessage(accept, {...data})
                 }
             } else {
-                const _Date = new Date()
 
                 data['date'] = new Date(_Date.getFullYear(), _Date.getMonth() - 1) // 设置日期为上月的
 
