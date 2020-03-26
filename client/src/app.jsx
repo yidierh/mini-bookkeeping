@@ -37,6 +37,10 @@ class App extends Component {
         pages: ['index']
       },
       {
+        root: 'pages/stat/',
+        pages: ['index']
+      },
+      {
         root: 'pages/about/',
         pages: ['index']
       }

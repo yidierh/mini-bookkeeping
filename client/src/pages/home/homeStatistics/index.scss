@@ -26,6 +26,45 @@
     }
     &-chart {
       padding: 20px 20px 20px 60px;
+      &-empty {
+        display: inline-flex;
+        align-items: center;
+        &__text {
+          text-align: center;
+          color: $lightBackGround;
+        }
+      }
+    }
+    &-type {
+      position: relative;
+      padding: 30px 60px 20px 60px;
+      font-weight: 500;
+      font-size: 24px;
+      line-height: 36px;
+      color: $lightBackGround;
+      &__left {
+        margin-right: 60px;
+      }
+      &__right {
+      }
+      &__line {
+        position: absolute;
+        width: 50px;
+        height: 4px;
+        left: 60px;
+        bottom: 10px;
+        background: #3BDEDA;
+        border-radius: 1px;
+        z-index: 1;
+        &-active_left {
+          transform: translateX(0px);
+          transition-duration: 0.3s
+        }
+        &-active_right {
+          transform: translateX(157px);
+          transition-duration: 0.3s
+        }
+      }
     }
     &__text {
       &__title {

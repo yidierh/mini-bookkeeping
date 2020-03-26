@@ -76,7 +76,7 @@ const getDay = (status) => {
                 dateString: status === 'day' ? new Date(y, m, d - 1).toJSON() : new Date(y, m - 1, 1).toJSON()
             }),
             queryEnd: $.dateFromString({
-                dateString: status === 'day' ? new Date(y, m, d).toJSON() : new Date(y, m + 1, 0).toJSON()
+                dateString: status === 'day' ? new Date(y, m, d).toJSON() : new Date(y, m, 0).toJSON()
             })
         }
     } else {
@@ -99,22 +99,32 @@ const sumAll = (status, openid, accept) => {
     return Promise.all([sumMoney(0, status, openid), sumMoney(1, status, openid)]).then(async res => {
         try {
 
-            const data = {
-                date: new Date(),
+            // pay - income
+            const _Date = new Date()
+            let data = {
                 _openid: openid,
-                income: res[0],
-                pay: res[1],
-                sum: res[0] * -1 + res[1]
+                income: res[1],
+                pay: res[0],
+                sum: res[0] - res[1]
             }
 
+
             if (status === 'day') {
+
+                data['date'] = new Date(_Date.getFullYear(), _Date.getMonth(), _Date.getDate() -1) // 设置日期为上月的
+
                 await DAY_RECORD.add({
                     data: {...data}
                 })
+
                 if (accept) {
+                    data['date'] = new Date(_Date.getFullYear(), _Date.getMonth(), _Date.getDate(), 9,0,0) // 设置日期为上月的
                     await sendMessage(accept, {...data})
                 }
             } else {
+
+                data['date'] = new Date(_Date.getFullYear(), _Date.getMonth() - 1) // 设置日期为上月的
+
                 await MONTH_RECORD.add({
                     data: {...data}
                 })

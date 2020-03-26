@@ -11,6 +11,7 @@ import Taro from '@tarojs/taro'
 const db = Taro.cloud.database()
 const RECORD = db.collection('record')
 const MONTH_RECORD = db.collection('month_record')
+const DAY_RECORD = db.collection('day_record')
 
 const _ = db.command
 const $ = _.aggregate
@@ -43,9 +44,8 @@ export const addRecord = ({type, bank_type, money, description, date = new Date(
 export const getRecordHistory = async () => {
   try {
     const {openid} = await getGlobalData('cloudData')
-
-    return await RECORD.where({_openid: openid}).get()
-
+    const { list } = await RECORD.aggregate().match({_openid: openid}).sort({date: -1}).end()
+    return list
   } catch (e) {
     throw e
   }
@@ -129,19 +129,69 @@ const sumMonthMoney = (arr) => {
 }
 
 /**
- * 获取当年每月的总消费
+ * 获取当年每月的总消费 / 当月每天消费
+ * @params type：day / year
  */
-export const getMonth = async () => {
+export const getEveryMonthOrDay = async (type) => {
+  const {openid} = await getGlobalData('cloudData')
+
+  let _collection = {
+    year: MONTH_RECORD,
+    day: DAY_RECORD
+  }
+
+  let _matched = ''
+  if (type === 'year') {
+    const {first_day} = monthFirstAndLast(1) // 大于一月的全部数据
+    _matched = $.gte(['$date', dateFromString(first_day)])
+  } else {
+    const _date = new Date()
+    const {first_day, last_day} = monthFirstAndLast(_date.getMonth() + 1)
+    _matched = $.and([$.gte(['$date', dateFromString(first_day)]), $.lte(['$date', dateFromString(last_day)])])
+  }
+
+  try {
+    const {list} = await _collection[type]
+      .aggregate()
+      .addFields({
+        matched: _matched
+      })
+      .match({
+        matched: true,
+        _openid: openid
+      })
+      .sort({
+        date: 1
+      })
+      .project({
+        x_date: $.dateToString({
+          date: '$date',
+          format: `%Y-%m${type !== 'year' ? '-%d' : ''}`,
+          timezone: 'Asia/Shanghai'
+        }),
+        income: '$income',
+        pay: '$pay',
+        sum: '$sum'
+      })
+      .end()
+    return list
+  } catch (e) {
+    throw e
+  }
+}
+
+/**
+ * 获取当月每天消费
+ * @return {Promise<void>}
+ */
+export const getEveryDay = async () => {
   const {openid} = await getGlobalData('cloudData')
   const {first_day} = monthFirstAndLast(1)
-  const queryDay = $.dateFromString({
-      dateString: new Date(first_day).toJSON()
-    })
   try {
     const {list} = await MONTH_RECORD
       .aggregate()
       .addFields({
-        matched: $.gte(['$date', queryDay])
+        matched: $.gte(['$date', dateFromString(first_day)])
       })
       .match({
         matched: true,
@@ -153,7 +203,8 @@ export const getMonth = async () => {
       .project({
         month: $.dateToString({
           date: '$date',
-          format: '%Y-%m'
+          format: '%Y-%m',
+          timezone: 'Asia/Shanghai'
         }),
         income: '$income',
         pay: '$pay',
@@ -173,15 +224,21 @@ export const getMonth = async () => {
 export const getLastSum = async () => {
   const {openid} = await getGlobalData('cloudData')
   const {first_day, last_day} = monthFirstAndLast(new Date().getMonth())
-
   try {
     const {data} = await MONTH_RECORD
       .where({
-        date: _.and([_.gte(first_day), _.lte(last_day), { _openid: openid }])
+        date: _.and([_.gte(first_day), _.lte(last_day)]),
+        _openid: _.eq(openid)
       })
       .get()
     return data.length ? data[0].sum : 0
   } catch (e) {
     throw e
   }
+}
+
+function dateFromString(date) {
+  return $.dateFromString({
+    dateString: new Date(date).toJSON()
+  })
 }

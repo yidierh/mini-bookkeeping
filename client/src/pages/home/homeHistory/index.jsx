@@ -51,7 +51,7 @@ export default class HomeHistory extends Component {
     if (is_update || is_first) {
       Promise.all([getRecordHistory(), getBank()]).then(res => {
         this.setState({
-          history_list: [ ...res[0].data ],
+          history_list: [ ...res[0] ],
           bank_data: { ...res[1] }
         })
       })

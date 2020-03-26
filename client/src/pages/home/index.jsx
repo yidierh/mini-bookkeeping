@@ -1,7 +1,7 @@
-import { get as getGlobalData, set as setGlobalData } from 'utils/global'
-import { getMonthSum, getMonth, getLastSum } from 'api/record'
-import Taro, { Component } from '@tarojs/taro'
-import {View, Text, Button} from '@tarojs/components'
+import {get as getGlobalData, set as setGlobalData} from 'utils/global'
+import {getMonthSum, getLastSum} from 'api/record'
+import Taro, {Component} from '@tarojs/taro'
+import {View} from '@tarojs/components'
 
 import './index.scss'
 
@@ -31,17 +31,21 @@ export default class Home extends Component {
 
   }
 
-  componentWillMount () {}
+  componentWillMount() {
+  }
 
-  componentDidMount () { }
+  componentDidMount() {
+  }
 
-  componentWillUnmount () { }
+  componentWillUnmount() {
+  }
 
-  componentDidShow () {
+  componentDidShow() {
     this.fetchData()
   }
 
-  componentDidHide () { }
+  componentDidHide() {
+  }
 
   // methods
   fetchData = async () => {
@@ -52,57 +56,34 @@ export default class Home extends Component {
 
       if (is_first) await setGlobalData('isFirst', false)
       else if (is_update) await setGlobalData('isUpdate', false)
-      Promise.all([getMonthSum(0), getMonthSum(1), getMonth(), this.getLastSumFun()]).then(res => {
-        const { x, sumData, payData, incomeData } = this.forMatMonth(res[2])
+      Promise.all([getMonthSum(0), getMonthSum(1), this.getLastSumFun(is_first)]).then(res => {
         this.setState({
           outSum: res[0],
-          inSum: res[1],
-          xData: [...x],
-          sumData: [...sumData],
-          payData: [...payData],
-          incomeData: [...incomeData]
+          inSum: res[1]
         })
       })
     }
   }
 
-  getLastSumFun = async () => {
-    const is_first = await getGlobalData('isFirst')
+  getLastSumFun = async (is_first) => {
     if (is_first) {
       getLastSum().then(res => {
-        this.setState({ lastSum: res })
+        this.setState({lastSum: res})
       })
     }
   }
 
-  forMatMonth= (arr) => {
-    let x = []
-    let sumData = []
-    let incomeData = []
-    let payData = []
-    arr.forEach(item => {
-      x.push(item.month)
-      sumData.push(item.sum)
-      incomeData.push(item.income)
-      payData.push(item.pay)
-    })
-    return { x: x, sumData, incomeData, payData }
-  }
-
-  render () {
-    const { inSum, outSum, xData,  incomeData, payData, sumData, lastSum } = this.state
+  render() {
+    const {inSum, outSum, lastSum} = this.state
     return (
       <View className='home-container'>
-        <HomeTop />
+        <HomeTop/>
         <HomeStatistics
           inSum={inSum}
           outSum={outSum}
-          xData={xData}
-          incomeData={incomeData}
-          payData={payData}
-          sumData={sumData}
-          lastSum={lastSum}/>
-        <HomeHistory />
+          lastSum={lastSum}
+        />
+        <HomeHistory/>
       </View>
     )
   }
