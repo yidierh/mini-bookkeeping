@@ -12,6 +12,7 @@ import {AtButton, AtMessage} from 'taro-ui'
 import { isNewUser } from 'api/user'
 
 import { set as setGlobalData } from 'utils/global'
+import { getAppData } from "@/api/app";
 
 import './index.scss'
 
@@ -62,10 +63,19 @@ export default class Login extends Component {
         console.log(e)
       }
     } else {
-      Taro.atMessage({
-        'message': '允许授权才可以继续使用哦',
-        'type': 'error',
-      })
+      try {
+        const { audit_mode } = await getAppData()
+        if (audit_mode) { // 审核模式
+          Taro.switchTab({ url: `/pages/user/index` })
+        } else {
+          Taro.atMessage({
+            'message': '允许授权才可以继续使用哦',
+            'type': 'error',
+          })
+        }
+      } catch (e) {
+        console.log(e)
+      }
     }
   }
 

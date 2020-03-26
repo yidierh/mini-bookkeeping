@@ -2,10 +2,11 @@
 
 ### 技术栈
 
-```text
 taro: https://taro.aotu.io/
+
 taro-ui: https://taro-ui.jd.com/
-```
+
+---
 
 ### 项目目录
 
