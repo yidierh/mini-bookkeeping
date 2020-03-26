@@ -120,7 +120,7 @@ const sumAll = (status, openid, accept) => {
             } else {
                 const _Date = new Date()
 
-                data['date'] = new Date(_Date.getFullYear(), _Date.getMonth()) // 设置日期为上月的
+                data['date'] = new Date(_Date.getFullYear(), _Date.getMonth() - 1) // 设置日期为上月的
 
                 await MONTH_RECORD.add({
                     data: {...data}
