@@ -8,6 +8,7 @@ import {formatNumber} from 'utils/filter'
 import Taro, {Component} from '@tarojs/taro'
 
 import {Text, View} from '@tarojs/components'
+import { AtIcon } from 'taro-ui'
 import './index.scss'
 
 import Chart from 'components/chart'
@@ -253,7 +254,15 @@ export default class HomeStatistics extends Component {
               className={`home-statistics-container__box-type__line ${current ? 'home-statistics-container__box-type__line-active_right' : 'home-statistics-container__box-type__line-active_left'}`}/>
           </View>
           <View className='home-statistics-container__box-chart'>
-            <Chart option={this.setOptions({xData, incomeData, payData, sumData})}/>
+            { xData.length ?
+              <Chart option={this.setOptions({xData, incomeData, payData, sumData})}/> :
+              <View className='home-statistics-container__box-chart-empty'>
+                <AtIcon value='analytics' size='60' color='#FFF'/>
+                <Text className='home-statistics-container__box-chart-empty__text'>
+                  暂时还没有数据哦
+                </Text>
+              </View>
+            }
           </View>
         </View>
       </View>

@@ -26,6 +26,14 @@
     }
     &-chart {
       padding: 20px 20px 20px 60px;
+      &-empty {
+        display: inline-flex;
+        align-items: center;
+        &__text {
+          text-align: center;
+          color: $lightBackGround;
+        }
+      }
     }
     &-type {
       position: relative;
