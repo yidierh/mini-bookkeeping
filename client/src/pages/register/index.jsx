@@ -57,7 +57,7 @@ export default class Register extends Component {
 
     const {email, birthday, phone, hasError} = this.state
 
-    if (!email || !birthday || !phone) {
+    if (!email || !birthday) {
       Taro.atMessage({
         'message': '请检查注册信息是否有误',
         'type': 'error',
@@ -119,11 +119,17 @@ export default class Register extends Component {
     } else {
       re = /^\d{4}([\/\-]?)\d{1,2}\1\d{1,2}$/
     }
-
     this.setState({
       [`${currentTarget.id}Error`]: !re.test(value),
       hasError: !re.test(value)
     })
+
+    if (name === 'phone' && !value) {
+      this.setState({
+        [`${currentTarget.id}Error`]: false,
+        hasError: false
+      })
+    }
   }
 
   getDate() {
@@ -165,18 +171,7 @@ export default class Register extends Component {
             onBlur={this.validate.bind(this)}
             onChange={this.handleChange.bind(this)}
           />
-          <AtInput
-            name='phone'
-            type='phone'
-            title='电话'
-            placeholder='请输入电话'
-            className='register-container-form-input'
-            placeholderClass='register-container-form-placeholder'
-            error={phoneError}
-            value={phone}
-            onBlur={this.validate.bind(this)}
-            onChange={this.handleChange.bind(this)}
-          />
+
           <AtInput
             name='birthday'
             type='text'
@@ -187,6 +182,19 @@ export default class Register extends Component {
             placeholderClass='register-container-form-placeholder'
             error={birthdayError}
             value={birthday}
+            onBlur={this.validate.bind(this)}
+            onChange={this.handleChange.bind(this)}
+          />
+
+          <AtInput
+            name='phone'
+            type='phone'
+            title='电话'
+            placeholder='请输入电话 （选填）'
+            className='register-container-form-input'
+            placeholderClass='register-container-form-placeholder'
+            error={phoneError}
+            value={phone}
             onBlur={this.validate.bind(this)}
             onChange={this.handleChange.bind(this)}
           />
