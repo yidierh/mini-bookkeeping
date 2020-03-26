@@ -49,8 +49,6 @@ const sumMoney = async (type, status, openid) => {
             })
             .end()
 
-        console.log(type, list)
-
         if (list.length) return list[0].total_money
 
         else return 0
