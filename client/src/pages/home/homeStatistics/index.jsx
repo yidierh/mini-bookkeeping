@@ -161,7 +161,7 @@ export default class HomeStatistics extends Component {
   }
 
   selectType = (value) => {
-    const { current } = this.state
+    const {current} = this.state
     if (value === current) return
     this.setState({
       current: value
@@ -170,10 +170,10 @@ export default class HomeStatistics extends Component {
 
   render() {
     const {inSum, outSum, lastSum, xData, incomeData, payData, sumData} = this.props
-    const { current } = this.state
+    const {current} = this.state
 
-    const monthSum = outSum * -1 + inSum
-    const compareSum = lastSum - monthSum
+    const monthSum = outSum + inSum * -1
+    const compareSum = (lastSum - monthSum) * -1 // 小于零减少
 
     return (
       <View className='home-statistics-container'>
@@ -185,9 +185,12 @@ export default class HomeStatistics extends Component {
             <Text className='home-statistics-container__box__text__money'>
               {formatNumber(monthSum)}
             </Text>
-            <Text className='home-statistics-container__box__text__sub'>
-              与上月相比 { `${compareSum < 0 ? '-' : '+'} ${ formatNumber(compareSum) }` }
-            </Text>
+            {compareSum ? <Text className='home-statistics-container__box__text__sub'>
+                与上月相比 {`${compareSum > 0 ? '+' : '-'}${formatNumber(compareSum > 0 ?
+                  compareSum :
+                  compareSum * -1)}`
+                }</Text> :
+              ''}
           </View>
           <View className='home-statistics-container__box-center'>
             <View className='home-statistics-container__box-center__item'>
@@ -214,10 +217,11 @@ export default class HomeStatistics extends Component {
             <Text className='home-statistics-container__box-type__right' onClick={() => this.selectType(1)}>
               最近一年
             </Text>
-            <View className={`home-statistics-container__box-type__line ${ current ? 'home-statistics-container__box-type__line-active_right' : 'home-statistics-container__box-type__line-active_left'}`}/>
+            <View
+              className={`home-statistics-container__box-type__line ${current ? 'home-statistics-container__box-type__line-active_right' : 'home-statistics-container__box-type__line-active_left'}`}/>
           </View>
           <View className='home-statistics-container__box-chart'>
-            { xData.length ? <Chart option={this.setOptions({xData, incomeData, payData, sumData})}/> : '' }
+            {xData.length ? <Chart option={this.setOptions({xData, incomeData, payData, sumData})}/> : ''}
           </View>
         </View>
       </View>
