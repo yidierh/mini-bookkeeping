@@ -7,7 +7,9 @@ const common = require('./common')
 
 const cloud = require('wx-server-sdk')
 
-cloud.init()
+cloud.init({
+    env: '' // 这里要填你的环境id 不然默认选第一个
+})
 
 const db = cloud.database()
 const _ = db.command
@@ -112,7 +114,6 @@ const sumAll = (status, openid, accept) => {
             if (status === 'day') {
 
                 data['date'] = new Date(_Date.getFullYear(), _Date.getMonth(), _Date.getDate() -1) // 设置日期为上月的
-
                 await DAY_RECORD.add({
                     data: {...data}
                 })
