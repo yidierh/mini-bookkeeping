@@ -7,6 +7,27 @@ taro: https://taro.aotu.io/
 taro-ui: https://taro-ui.jd.com/
 
 ---
+### 开始
+```text
+// 要先全局安装 Taro-cli
+// 使用 npm 安装 CLI
+npm install -g @tarojs/cli
+// OR 使用 yarn 安装 CLI
+yarn global add @tarojs/cli
+// OR 安装了 cnpm，使用 cnpm 安装 CLI
+cnpm install -g @tarojs/cli
+
+// 安装完后在 client 目录下 安装依赖包
+npm install
+// 编译 & 打包
+npm run dev:weapp
+npm run build:weapp
+```
+> 可能需要兼容Taro版本
+```text
+taro update self [提示版本]
+```
+
 
 ### 项目目录
 
