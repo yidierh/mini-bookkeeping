@@ -9,22 +9,9 @@ import {View} from '@tarojs/components'
 import './index.scss'
 
 export default class UserLoading extends Component {
-
-    componentWillMount() {
+    config = {
+      component: true
     }
-
-    componentDidMount() {
-    }
-
-    componentWillUnmount() {
-    }
-
-    componentDidShow() {
-    }
-
-    componentDidHide() {
-    }
-
     render() {
         return (
             <View className='user-loading-container'>

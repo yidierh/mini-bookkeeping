@@ -18,6 +18,10 @@ import './index.scss'
 
 export default class HomeHistory extends Component {
 
+  config = {
+    component: true
+  }
+
   constructor() {
     super(...arguments)
     this.state = {

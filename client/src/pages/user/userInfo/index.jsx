@@ -11,6 +11,10 @@ import './index.scss'
 
 class UserInfo extends Component {
 
+  config = {
+    component: true
+  }
+
   static defaultProps = {
     userInfo: {
       avatar_url: '',
@@ -23,21 +27,6 @@ class UserInfo extends Component {
 
   constructor(props) {
     super(props);
-  }
-
-  componentWillMount() {
-  }
-
-  componentDidMount() {
-  }
-
-  componentWillUnmount() {
-  }
-
-  componentDidShow() {
-  }
-
-  componentDidHide() {
   }
 
   render() {
