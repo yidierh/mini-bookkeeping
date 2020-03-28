@@ -152,10 +152,10 @@ const sendMessage = async (isAccept, {_openid, income, pay, sum, date}) => {
                 page: 'pages/start/index',
                 data: {
                     amount4: {
-                        value: income + '元'
+                        value: pay + '元'
                     },
                     amount5: {
-                        value: pay + '元'
+                        value: income + '元'
                     },
                     amount10: {
                         value: sum + '元'
