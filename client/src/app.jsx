@@ -2,6 +2,7 @@ import '@/public/font/iconfont.css'
 import 'taro-ui/dist/style/index.scss'
 
 import Taro, { Component } from '@tarojs/taro'
+import {set as setGlobalData} from 'utils/global'
 import * as config from '../../mini.config.json'
 import Home from './pages/home/index'
 
@@ -87,7 +88,9 @@ class App extends Component {
 
   componentDidShow () {}
 
-  componentDidHide () {}
+  componentDidHide () {
+    setGlobalData('isFirst', true)
+  }
 
   componentDidCatchError () {}
 

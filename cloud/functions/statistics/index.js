@@ -110,16 +110,20 @@ const sumAll = (status, openid, accept) => {
                 sum: res[0] - res[1]
             }
 
+            console.log('data:=====================', {
+                _openid: openid,
+                income: res[1],
+                pay: res[0],
+                sum: res[0] - res[1]
+            })
 
             if (status === 'day') {
-
-                data['date'] = new Date(_Date.getFullYear(), _Date.getMonth(), _Date.getDate() -1) // 设置日期为上月的
+                data['date'] = new Date(_Date.getFullYear(), _Date.getMonth(), _Date.getDate() - 1) // 设置日期为上月的
                 await DAY_RECORD.add({
                     data: {...data}
                 })
-
                 if (accept) {
-                    data['date'] = new Date(_Date.getFullYear(), _Date.getMonth(), _Date.getDate(), 9,0,0) // 设置日期为上月的
+                    data['date'] = new Date(_Date.getFullYear(), _Date.getMonth(), _Date.getDate(), 9, 0, 0) // 设置日期为上月的
                     await sendMessage(accept, {...data})
                 }
             } else {
@@ -132,6 +136,7 @@ const sumAll = (status, openid, accept) => {
             }
 
         } catch (e) {
+            console.log('e:----------------------', e)
             throw e
         }
     })
