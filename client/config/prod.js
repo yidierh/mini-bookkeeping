@@ -1,8 +1,10 @@
+const config = require('../../mini.config');
 module.exports = {
   env: {
     NODE_ENV: '"production"'
   },
   defineConstants: {
+    CLOUD_ID: JSON.stringify(config.cloud_prod)
   },
   mini: {},
   h5: {
