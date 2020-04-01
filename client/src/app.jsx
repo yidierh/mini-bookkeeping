@@ -78,11 +78,7 @@ class App extends Component {
      * 这里改你的云环境地址
      */
     if (process.env.TARO_ENV === 'weapp') {
-      if (process.env.NODE_ENV !== 'production') {
-        Taro.cloud.init({ env: config.cloud_dev })
-      } else {
-        Taro.cloud.init({ env: config.cloud_prod })
-      }
+      Taro.cloud.init({ env: CLOUD_ID })
     }
   }
 
