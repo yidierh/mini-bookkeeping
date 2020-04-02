@@ -59,6 +59,7 @@ npm run build:weapp
 │    │    ├── index.js                      login 函数逻辑
 │    │    └── package.json
 │    └── statistics                         订阅消息 & 统计云函数
+│
 │         ├── index.js                      statistics 函数逻辑   
 │         ├── common.js                     公有方法
 │         ├── config.json                   云函数接口授权 & 触发器配置
