@@ -4,7 +4,9 @@ module.exports = {
     NODE_ENV: '"production"'
   },
   defineConstants: {
-    CLOUD_ID: JSON.stringify(config.cloud_prod)
+    CLOUD_ID: JSON.stringify(config.cloud_prod),
+    APP_NAME: JSON.stringify(config.app_name),
+    TEMPL_IDS: JSON.stringify(config.tmpl_ids)
   },
   mini: {},
   h5: {

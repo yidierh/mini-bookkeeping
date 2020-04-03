@@ -151,7 +151,7 @@ export default class Register extends Component {
     return (
       <View className='register-container'>
         <AtMessage />
-        <Text className='register-container-title'> {config.appName} </Text>
+        <Text className='register-container-title'> {APP_NAME} </Text>
         <Text className='register-container-text'> 欢迎您， </Text>
         <Text className='register-container-sub'> 继续前进 </Text>
         {/*  表单 */}

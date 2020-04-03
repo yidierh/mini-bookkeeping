@@ -4,13 +4,11 @@
  * @email yidierh@gmail.com
  * @date 2020-02-24
  */
-import * as config from '../../../../mini.config.json'
 import Taro, {Component} from '@tarojs/taro'
 import {View, Text, Image} from '@tarojs/components'
 import {AtButton, AtMessage} from 'taro-ui'
 import {isNewUser, updateUserMessageAccept} from 'api/user'
-import {set as setGlobalData, get as getGloablData} from 'utils/global'
-import {sumAll} from "../../api/test";
+import {set as setGlobalData} from 'utils/global'
 
 import './index.scss'
 
@@ -64,8 +62,8 @@ export default class Start extends Component {
   start = async () => {
     // 订阅消息授权
     let authorize = {}
-    Taro.requestSubscribeMessage({tmplIds: [...config.tmplIds]}).then(async res => {
-      authorize = res[config.tmplIds[0]]
+    Taro.requestSubscribeMessage({tmplIds: [...TEMPL_IDS]}).then(async res => {
+      authorize = res[TEMPL_IDS[0]]
       this.next(authorize)
     }).catch(async err => {
       if (err.errCode === 20004) {
@@ -107,7 +105,7 @@ export default class Start extends Component {
         <View className={`start-container-hello ${isFirst ? 'fade-out' : ''}`}
               style={{visibility: `${isFirst ? '' : 'hidden'}`}}
         >
-          <Text className='start-container-hello-text'> {config.appName} </Text>
+          <Text className='start-container-hello-text'> {APP_NAME} </Text>
         </View>
         <View className='start-container-main'>
           <Image src={require('images/start/start.png')} className='start-container-main-img' width='100%'

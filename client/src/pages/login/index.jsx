@@ -83,7 +83,7 @@ export default class Login extends Component {
     return (
       <View className='login-container'>
         <AtMessage />
-        <Text className='login-container-title'> {config.appName} </Text>
+        <Text className='login-container-title'> {APP_NAME} </Text>
         <Text className='login-container-text'> 欢迎您， </Text>
         <Text className='login-container-sub'> 继续前进 </Text>
         <View className='login-container-icon-wrap'>

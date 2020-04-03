@@ -75,10 +75,10 @@ npm run build:weapp
 > 需要在根目录下新建一个 mini.config.json
 ```text
 {
-  "appName": "your app name",
+  "app_name": "your app name",
   "cloud_dev": "dev env",
   "cloud_prod": "prod env",
-  "tmplIds": [""] // 订阅消息ID，不需要可以在 start 页面去掉
+  "tmpl_ids": [""] // 订阅消息ID，不需要可以在 start 页面去掉
 }
 ```
 
