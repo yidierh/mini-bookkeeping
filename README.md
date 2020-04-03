@@ -27,6 +27,8 @@ taro update self [提示版本]
 2. 使用微信开发者工具调试项目，请将项目 整个文件夹 作为运行目录。 注意： 不是 client 中生成的 dist 文件夹
 
 ```nodemon
+# 使用taobao的npm仓库镜像
+npm set registry https://registry.npm.taobao.org/
 # 安装依赖包
 npm install
 # 编译 & 打包
@@ -46,6 +48,7 @@ npm run build:weapp
 │   │   └── prod.js                         打包时配置
 │   ├── dist                                编译结果目录
 │   ├── package.json
+|   ├── package-lock.json
 │   ├── src                                 源码目录
 │   │   ├── app.scss                        项目总通用样式
 │   │   ├── app.js                          项目入口文件
