@@ -25,7 +25,7 @@ export const isNewUser = async () => {
     return !_userArr.data.length
 
   } catch (e) {
-    throw new Error(e)
+    throw e
   }
 
 }
