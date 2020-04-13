@@ -84,7 +84,7 @@ npm run build:weapp
 
 ### 邮箱
 
-yidierh@gmail.com
+[yidierh@gmail.com](mailto:yidierh@gmail.com)
 
 
 
