@@ -4,9 +4,9 @@
  * @email yidierh@gmail.com
  * @date 2020-02-29
  */
+import Taro from '@tarojs/taro'
 import {get as getGlobalData} from 'utils/global'
 import {monthFirstAndLast} from "../utils";
-import Taro from '@tarojs/taro'
 
 const db = Taro.cloud.database()
 const RECORD = db.collection('record')

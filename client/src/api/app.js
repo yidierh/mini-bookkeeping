@@ -4,16 +4,8 @@
  * @email yidierh@gmail.com
  * @description 一些系统参数
  */
-import Taro from "@tarojs/taro";
+import AppSvc from "./service/AppSvc";
+import AppSvcMock from "./service/mock/AppSvcMock";
+import { isMock } from "../../config.json";
 
-const db = Taro.cloud.database()
-const APP = db.collection('app')
-
-export const getAppData = async () => {
-  try {
-    const { data } = await APP.get()
-    return data[0]
-  } catch (e) {
-    throw e
-  }
-}
+export const getAppData = isMock ? new AppSvcMock().getAppData : new AppSvc().getAppData
