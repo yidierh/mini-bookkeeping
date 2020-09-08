@@ -17,9 +17,10 @@ yarn global add @tarojs/cli
 # OR 安装了 cnpm，使用 cnpm 安装 CLI
 cnpm install -g @tarojs/cli
 ```
-> 可能需要兼容Taro版本
+### 需要兼容Taro版本
+> 否则会编译不成功
 ```text
-taro update self [提示版本]
+taro update self 2.0.5
 ```
 > 使用要点
 
