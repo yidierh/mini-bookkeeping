@@ -45,8 +45,8 @@
 		"taro-ui": "^2.2.4"
 	},
 	"devDependencies": {
-		"@tarojs/mini-runner": "2.0.5",
-		"@tarojs/webpack-runner": "2.0.5",
+		"@tarojs/mini-runner": "3.5.11",
+		"@tarojs/webpack-runner": "3.5.11",
 		"@types/react": "^16.4.6",
 		"@types/webpack-env": "1.13.6",
 		"babel-eslint": "8.2.3",
